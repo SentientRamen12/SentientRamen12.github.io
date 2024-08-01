@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 0.5rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 2rem;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dark-mode h2 {
+            color: #fff;
+        }
+
+        #darkModeToggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Shubham Rastogi</h1>
+        <p>Welcome to my personal website</p>
+    </header>
+
+    <button id="darkModeToggle">Toggle Dark Mode</button>
+
+    <nav>
+        <ul>
+            <li><a href="#personal-info">Personal Info</a></li>
+            <li><a href="#professional-journey">Professional Journey</a></li>
+            <li><a href="#educational-journey">Educational Journey</a></li>
+            <li><a href="#personal-journey">Personal Journey</a></li>
+        </ul>
+    </nav>
+
+    <section id="personal-info">
+        <h2>Personal Info</h2>
+        <p>Your personal information goes here. You can include details about yourself, your interests, and your goals.
+        </p>
+    </section>
+
+    <section id="professional-journey">
+        <h2>Professional Journey</h2>
+        <p>Describe your professional experiences, job history, and career achievements here.</p>
+    </section>
+
+    <section id="educational-journey">
+        <h2>Educational Journey</h2>
+        <p>List your educational background, degrees, certifications, and any significant academic accomplishments.</p>
+    </section>
+
+    <section id="personal-journey">
+        <h2>Personal Journey</h2>
+        <p>Share your personal growth, life experiences, and any significant events that have shaped you as a person.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Shubham Rastogi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('darkModeToggle').addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+
+</html>
