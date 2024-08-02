@@ -4,8 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubham Rastogi - Personal Website</title>
+    <title>Your Name - Personal Website</title>
     <style>
+        .title-text {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            transition: color 0.5s ease;
+        }
+
+        .title-text::before,
+        .title-text::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .title-text::before {
+            content: attr(data-hover);
+            color: #ffd700;
+            /* Gold color for "Sentient Ramen" */
+        }
+
+        .title-text::after {
+            content: '';
+            background-color: #333;
+            z-index: -1;
+        }
+
+        .title-text:hover {
+            color: transparent;
+        }
+
+        .title-text:hover::before,
+        .title-text:hover::after {
+            opacity: 1;
+        }
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -17,38 +56,78 @@
         header {
             background-color: #333;
             color: #fff;
+            padding: 2rem;
             text-align: center;
-            padding: 1rem;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0 0 1rem 0;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin: 0;
         }
 
         .profile-image {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 1rem;
         }
 
+        section {
+            padding: 2rem;
+            display: none;
+        }
+
+        #about-me {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .about-me-content {
+            flex-grow: 1;
+            padding-left: 2rem;
+        }
+
         nav {
             background-color: #444;
             color: #fff;
-            padding: 0.5rem;
         }
 
         nav ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: stretch;
         }
 
         nav ul li {
-            display: inline;
-            margin-right: 10px;
+            flex-grow: 1;
         }
 
         nav ul li a {
             color: #fff;
             text-decoration: none;
             cursor: pointer;
+            display: block;
+            padding: 1rem;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        nav ul li a.active {
+            background-color: #666;
+            color: #ffd700;
+            /* Gold color for active section */
         }
 
         section {
@@ -79,51 +158,77 @@
             border: none;
             cursor: pointer;
         }
+
+        .footer {
+            padding: 2rem;
+        }
+
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <img src="sentient_ramen_logo.jpeg" alt="Sentient Ramen" class="profile-image">
-        <h1>Shubham Rastogi</h1>
-        <p>Welcome to my personal website</p>
+        <h1><span class="title-text" data-original="Shubham Rastogi" data-hover="Sentient Ramen">Shubham Rastogi</span>
+        </h1>
     </header>
 
     <button id="darkModeToggle">Toggle Dark Mode</button>
 
     <nav>
         <ul>
-            <li><a onclick="showSection('personal-info')">Personal Info</a></li>
-            <li><a onclick="showSection('professional-journey')">Professional Journey</a></li>
-            <li><a onclick="showSection('educational-journey')">Educational Journey</a></li>
-            <li><a onclick="showSection('personal-journey')">Personal Journey</a></li>
+            <li><a onclick="showSection('personal-info')" id="nav-personal-info">About Me</a></li>
+            <li><a onclick="showSection('experience')" id="nav-experience">Experience</a></li>
+            <li><a onclick="showSection('education')" id="nav-education">Education</a></li>
+            <li><a onclick="showSection('projects')" id="nav-projects">Projects</a></li>
+            <li><a onclick="showSection('personal-journey')" id="nav-personal-journey">Beyond Work</a></li>
         </ul>
     </nav>
 
-    <section id="personal-info">
-        <h2>Personal Info</h2>
-        <p>Your personal information goes here. You can include details about yourself, your interests, and your goals.
-        </p>
+    <section id="personal-info" class="active">
+        <img src="assets/shubham.jpg" alt="Your Name" class="profile-image">
+        <div class="about-me-content">
+            <h2>About Me</h2>
+            <p>Your personal information goes here. You can include details about yourself, your interests, and your
+                goals.</p>
+        </div>
     </section>
 
-    <section id="professional-journey">
-        <h2>Professional Journey</h2>
+    <section id="experience">
+        <h2>Experience</h2>
         <p>Describe your professional experiences, job history, and career achievements here.</p>
     </section>
 
-    <section id="educational-journey">
-        <h2>Educational Journey</h2>
-        <p>List your educational background, degrees, certifications, and any significant academic accomplishments.</p>
+    <section id="education">
+        <h2>Education</h2>
+        <h3>NYU</h3>
+        <h3>DTU/DCE</h3>
+        <h3>GMIS</h3>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Explores my projects
+        </p>
     </section>
 
     <section id="personal-journey">
-        <h2>Personal Journey</h2>
+        <h2>Beyond Work</h2>
         <p>Share your personal growth, life experiences, and any significant events that have shaped you as a person.
         </p>
     </section>
 
     <footer>
-        <p>&copy; 2024 Sentient Ramen. All rights reserved.</p>
+        <p class="footer">&copy; 2024 Shubham Rastogi. All rights reserved.</p>
     </footer>
 
     <script>
@@ -132,13 +237,38 @@
         });
 
         function showSection(sectionId) {
+            // Hide all sections
             var sections = document.getElementsByTagName('section');
             for (var i = 0; i < sections.length; i++) {
                 sections[i].style.display = 'none';
+                sections[i].classList.remove('active');
             }
-            document.getElementById(sectionId).style.display = 'block';
+
+            // Show the selected section
+            var selectedSection = document.getElementById(sectionId);
+            if (sectionId === 'personal-info') {
+                selectedSection.style.display = 'flex';
+            } else {
+                selectedSection.style.display = 'block';
+            }
+
+            // Trigger reflow
+            selectedSection.offsetHeight;
+
+            // Add active class to trigger animation
+            selectedSection.classList.add('active');
+
+            // Remove 'active' class from all nav items
+            var navItems = document.querySelectorAll('nav ul li a');
+            for (var i = 0; i < navItems.length; i++) {
+                navItems[i].classList.remove('active');
+            }
+
+            // Add 'active' class to the clicked nav item
+            document.getElementById('nav-' + sectionId).classList.add('active');
         }
 
+        // Show the personal-info section by default
         showSection('personal-info');
     </script>
 </body>
