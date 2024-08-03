@@ -43,29 +43,29 @@ const experiences = [
     {
         company: "Ula",
         role: "Founding Engineer | SDE 2",
-        startDate: "Sept 2020",
+        startDate: "Sep 2020",
         endDate: "May 2023",
         details: `
-        <h3>Pioneering E-Commerce Evolution in Indonesia: My Ula Journey</h3>
-
-        <p>In September 2020, I embarked on an exhilarating venture with Ula, a Sequoia-funded startup poised to revolutionize B2B e-commerce in Indonesia. As a Founding Engineer, I found myself at the intersection of technology and economic empowerment, tasked with building solutions that would reshape the landscape for countless small retailers across the archipelago.</p>
-
-        <p>Our goal was to create a digital ecosystem that would level the playing field for small businesses, connecting them seamlessly with suppliers and opening up new avenues for growth. We endeavoured to build a new future for traditional commerce in one of Southeast Asia's most dynamic markets.</p>
-
-        <h4>Key Contributions and Impacts:</h4>
+        <h4>Pioneering E-Commerce Evolution in Indonesia: My Ula Journey</h4>
+    
+        <p>In September 2020, I embarked on an exhilarating venture with Ula, a Sequoia-funded startup poised to revolutionize B2B e-commerce in Indonesia. Growing up in Indonesia, I understood the challenges faced by small retailers and was thrilled to build solutions that would empower them.</p>
+    
+        <p>Our goal was to create a digital ecosystem that would level the playing field for small businesses, connecting them seamlessly with suppliers and opening up new avenues for growth. We endeavored to build a new future for traditional commerce in one of Southeast Asia's most dynamic markets.</p>
+    
+        <h5>Key Contributions and Impacts:</h5>
         <ul>
         <li>Spearheaded the development of critical social commerce features, leading a team of three engineers. Our innovations extended the platform's reach to online retailers, enabling them to manage and fulfill end-customer orders efficiently.</li>
         <li>Orchestrated a significant overhaul of our core services - order management, catalog systems, inventory tracking, and logistics. This comprehensive upgrade, coupled with new product listing, discovery, and promotional capabilities, catapulted our app usage from a mere 10% to an impressive 80%, contributing a substantial 25% to the monthly Gross Merchandise Value (GMV).</li>
         <li>Tackled a critical optimization challenge in order data collation and report generation that was impeding key services. In collaboration with the Principal Developer, we engineered a robust data warehouse and pipeline solution using Golang, Kafka, BigQuery, and GraphQL. This innovation not only eliminated downtime issues but also slashed report generation time to mere seconds, ensuring smooth order creation and management flows.</li>
         </ul>
-
-        <h4>Recognition and Growth:</h4>
+    
+        <h5>Recognition and Growth:</h5>
         <ul>
         <li>Our relentless innovation and market impact attracted the attention of global investment giants. Beyond our initial Sequoia Capital backing, we secured funding from tech behemoth Tencent and Bezos Expeditions, catapulting Ula to a Series B valuation of US$600 million.</li>
         <li>This financial vote of confidence wasn't just about numbers; it was a testament to our vision and the tangible impact we were making in transforming Indonesia's retail landscape.</li>
         </ul>
-
-        <h4>Personal Evolution and Insights:</h4>
+    
+        <h5>Personal Evolution and Insights:</h5>
         <p>My journey at Ula has been a crucible of growth, both professionally and personally:</p>
         <ul>
         <li>Mastered the art of building scalable solutions, honing my ability to make technical decisions that not only solve immediate challenges but also pave the way for future innovations.</li>
@@ -73,10 +73,28 @@ const experiences = [
         <li>Stepped into leadership, guiding an engineering team and mastering the delicate balance of managing expectations while driving innovation.</li>
         <li>Perhaps most critically, I cultivated a deep understanding of the symbiosis between technology, product, and business. This broader perspective allowed me to identify technological opportunities that aligned with our business goals and created tangible impact for our end users.</li>
         </ul>
-
+    
         <p>Reflecting on my time at Ula, I'm struck by the profound impact technology can have when it's purposefully applied to real-world challenges. We weren't just building an e-commerce platform; we were constructing a bridge between traditional commerce and the digital future, empowering small businesses to thrive in an increasingly connected world.</p>
-`
+    `
     },
+    {
+        company: "Undostres",
+        role: "Full Stack Developer",
+        startDate: "Feb 2019",
+        endDate: "Aug 2020",
+        details: `
+        TBD
+        `
+    },
+    {
+        company: "Pingal Technologies",
+        role: "Software Developer Intern",
+        startDate: "Jun 2018",
+        endDate: "Aug 2018",
+        details: `
+        TBD
+        `
+    }
 ];
 
 
@@ -114,103 +132,61 @@ function createTimeline() {
     document.querySelector('.experience-item').classList.add('active');
 }
 
-function setupTimelineScroll() {
+function createTimeline() {
+    const timelineButtons = document.querySelector('.timeline-buttons');
     const timelineContent = document.querySelector('.timeline-content');
-    const timelinePoints = document.querySelectorAll('.timeline-point');
-    const experienceItems = document.querySelectorAll('.experience-item');
-    let currentIndex = 0;
-    let isScrolling = false;
 
-    function updateActiveExperience(index) {
-        if (index < 0) index = 0;
-        if (index >= experiences.length) index = experiences.length - 1;
+    experiences.forEach((exp, index) => {
+        // Create timeline button
+        const button = document.createElement('button');
+        button.className = 'timeline-button';
+        button.textContent = exp.company;
+        button.addEventListener('click', () => updateActiveExperience(index));
+        timelineButtons.appendChild(button);
 
-        timelinePoints.forEach((point, i) => {
-            point.classList.toggle('active', i === index);
-        });
-
-        experienceItems.forEach((item, i) => {
-            if (i === index) {
-                item.classList.add('active');
-                item.style.display = 'block';
-                setTimeout(() => {
-                    item.style.opacity = 1;
-                    item.scrollTop = 0; // Reset scroll position
-                }, 50);
-            } else {
-                item.classList.remove('active');
-                item.style.opacity = 0;
-                setTimeout(() => {
-                    item.style.display = 'none';
-                }, 300);
-            }
-        });
-
-        currentIndex = index;
-    }
-
-    function handleWheel(event) {
-        if (isScrolling) return;
-
-        const activeItem = document.querySelector('.experience-item.active');
-        const { scrollTop, scrollHeight, clientHeight } = activeItem;
-
-        // Check if we're at the top or bottom of the active item's content
-        if (scrollTop === 0 && event.deltaY < 0) {
-            event.preventDefault();
-            isScrolling = true;
-            updateActiveExperience(currentIndex - 1);
-            setTimeout(() => { isScrolling = false; }, 500);
-        } else if (scrollTop + clientHeight >= scrollHeight - 1 && event.deltaY > 0) {
-            event.preventDefault();
-            isScrolling = true;
-            updateActiveExperience(currentIndex + 1);
-            setTimeout(() => { isScrolling = false; }, 500);
-        }
-    }
-
-    timelineContent.addEventListener('wheel', handleWheel, { passive: false });
-
-    // Touch events for mobile (similar logic can be applied here)
-    let touchStartY;
-    timelineContent.addEventListener('touchstart', (e) => {
-        touchStartY = e.touches[0].clientY;
+        // Create experience details
+        const details = document.createElement('div');
+        details.className = 'experience-item';
+        details.innerHTML = `
+            <h3>${exp.company}</h3>
+            <h4>${exp.role}</h4>
+            <p>${exp.startDate} - ${exp.endDate}</p>
+            ${exp.details}
+        `;
+        timelineContent.appendChild(details);
     });
 
-    timelineContent.addEventListener('touchmove', (e) => {
-        if (isScrolling) return;
-
-        const touchEndY = e.touches[0].clientY;
-        const activeItem = document.querySelector('.experience-item.active');
-        const { scrollTop, scrollHeight, clientHeight } = activeItem;
-
-        if (scrollTop === 0 && touchEndY > touchStartY) {
-            e.preventDefault();
-            isScrolling = true;
-            updateActiveExperience(currentIndex - 1);
-            setTimeout(() => { isScrolling = false; }, 500);
-        } else if (scrollTop + clientHeight >= scrollHeight - 1 && touchEndY < touchStartY) {
-            e.preventDefault();
-            isScrolling = true;
-            updateActiveExperience(currentIndex + 1);
-            setTimeout(() => { isScrolling = false; }, 500);
-        }
-        touchStartY = touchEndY;
-    });
-
-    // Initialize the first experience as active
+    // Activate the first item by default
     updateActiveExperience(0);
+}
 
-    // Add click event listeners to timeline points
-    timelinePoints.forEach((point, index) => {
-        point.addEventListener('click', () => updateActiveExperience(index));
+function updateActiveExperience(index) {
+    const buttons = document.querySelectorAll('.timeline-button');
+    const experienceItems = document.querySelectorAll('.experience-item');
+
+    buttons.forEach((button, i) => {
+        button.classList.toggle('active', i === index);
+    });
+
+    experienceItems.forEach((item, i) => {
+        if (i === index) {
+            item.classList.add('active');
+            item.style.display = 'block';
+            setTimeout(() => {
+                item.style.opacity = 1;
+            }, 50);
+        } else {
+            item.classList.remove('active');
+            item.style.opacity = 0;
+            setTimeout(() => {
+                item.style.display = 'none';
+            }, 300);
+        }
     });
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
     createTimeline();
-    setupTimelineScroll();
 });
 
 
@@ -223,6 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     darkModeToggle.addEventListener('click', function () {
         document.body.classList.toggle('dark-mode');
+        document.querySelector('.timeline-container').classList.toggle('dark-mode');
     });
 
     function smoothScroll(target, duration) {
