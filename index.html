@@ -4,176 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Website</title>
-    <style>
-        .title-text {
-            display: inline-block;
-            position: relative;
-            cursor: pointer;
-            transition: color 0.5s ease;
-        }
-
-        .title-text::before,
-        .title-text::after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .title-text::before {
-            content: attr(data-hover);
-            color: #ffd700;
-            /* Gold color for "Sentient Ramen" */
-        }
-
-        .title-text::after {
-            content: '';
-            background-color: #333;
-            z-index: -1;
-        }
-
-        .title-text:hover {
-            color: transparent;
-        }
-
-        .title-text:hover::before,
-        .title-text:hover::after {
-            opacity: 1;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 3.5rem;
-            margin: 0 0 1rem 0;
-        }
-
-        header p {
-            font-size: 1.5rem;
-            margin: 0;
-        }
-
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1rem;
-        }
-
-        section {
-            padding: 2rem;
-            display: none;
-        }
-
-        #about-me {
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .about-me-content {
-            flex-grow: 1;
-            padding-left: 2rem;
-        }
-
-        nav {
-            background-color: #444;
-            color: #fff;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: stretch;
-        }
-
-        nav ul li {
-            flex-grow: 1;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            cursor: pointer;
-            display: block;
-            padding: 1rem;
-            text-align: center;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        nav ul li a:hover {
-            background-color: #555;
-        }
-
-        nav ul li a.active {
-            background-color: #666;
-            color: #ffd700;
-            /* Gold color for active section */
-        }
-
-        section {
-            padding: 2rem;
-            display: none;
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        .dark-mode {
-            background-color: #333;
-            color: #fff;
-        }
-
-        .dark-mode h2 {
-            color: #fff;
-        }
-
-        #darkModeToggle {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            padding: 10px;
-            background-color: #444;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        .footer {
-            padding: 2rem;
-        }
-
-        section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        section.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <title>Shubham Rastogi - Personal Website</title>
+    <link rel="stylesheet" href="src/styles.css">
 </head>
 
 <body>
@@ -186,26 +18,32 @@
 
     <nav>
         <ul>
-            <li><a onclick="showSection('personal-info')" id="nav-personal-info">About Me</a></li>
-            <li><a onclick="showSection('experience')" id="nav-experience">Experience</a></li>
-            <li><a onclick="showSection('education')" id="nav-education">Education</a></li>
-            <li><a onclick="showSection('projects')" id="nav-projects">Projects</a></li>
-            <li><a onclick="showSection('personal-journey')" id="nav-personal-journey">Beyond Work</a></li>
+            <li><a id="nav-personal-info">About Me</a></li>
+            <li><a id="nav-experience">Experience</a></li>
+            <li><a id="nav-education">Education</a></li>
+            <li><a id="nav-projects">Projects</a></li>
+            <li><a id="nav-personal-journey">Beyond Work</a></li>
         </ul>
     </nav>
 
     <section id="personal-info" class="active">
-        <img src="assets/shubham.jpg" alt="Your Name" class="profile-image">
+        <img src="assets/shubham.jpg" alt="Shubham Rastogi" class="profile-image">
         <div class="about-me-content">
             <h2>About Me</h2>
-            <p>Your personal information goes here. You can include details about yourself, your interests, and your
-                goals.</p>
+            <p>Your personal information goes here.</p>
         </div>
     </section>
 
-    <section id="experience">
-        <h2>Experience</h2>
-        <p>Describe your professional experiences, job history, and career achievements here.</p>
+    <section id="experience" class="section">
+        <h2>Professional Experience</h2>
+        <div class="timeline-container">
+            <div class="timeline">
+                <!-- Timeline points will be dynamically added here -->
+            </div>
+            <div class="timeline-content">
+                <!-- Experience details will be dynamically added here -->
+            </div>
+        </div>
     </section>
 
     <section id="education">
@@ -217,60 +55,20 @@
 
     <section id="projects">
         <h2>Projects</h2>
-        <p>Explores my projects
-        </p>
+        <p>Explore my projects</p>
     </section>
 
     <section id="personal-journey">
         <h2>Beyond Work</h2>
-        <p>Share your personal growth, life experiences, and any significant events that have shaped you as a person.
-        </p>
+        <p>Share your personal growth and experiences.</p>
     </section>
 
     <footer>
         <p class="footer">&copy; 2024 Shubham Rastogi. All rights reserved.</p>
     </footer>
 
-    <script>
-        document.getElementById('darkModeToggle').addEventListener('click', function () {
-            document.body.classList.toggle('dark-mode');
-        });
-
-        function showSection(sectionId) {
-            // Hide all sections
-            var sections = document.getElementsByTagName('section');
-            for (var i = 0; i < sections.length; i++) {
-                sections[i].style.display = 'none';
-                sections[i].classList.remove('active');
-            }
-
-            // Show the selected section
-            var selectedSection = document.getElementById(sectionId);
-            if (sectionId === 'personal-info') {
-                selectedSection.style.display = 'flex';
-            } else {
-                selectedSection.style.display = 'block';
-            }
-
-            // Trigger reflow
-            selectedSection.offsetHeight;
-
-            // Add active class to trigger animation
-            selectedSection.classList.add('active');
-
-            // Remove 'active' class from all nav items
-            var navItems = document.querySelectorAll('nav ul li a');
-            for (var i = 0; i < navItems.length; i++) {
-                navItems[i].classList.remove('active');
-            }
-
-            // Add 'active' class to the clicked nav item
-            document.getElementById('nav-' + sectionId).classList.add('active');
-        }
-
-        // Show the personal-info section by default
-        showSection('personal-info');
-    </script>
+    <script src="src/experience.js"></script>
+    <script src="src/script.js"></script>
 </body>
 
 </html>
