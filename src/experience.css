@@ -1,0 +1,69 @@
+.experience-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.experience-item h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-item h4 {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-item .experience-date {
+    color: var(--primary-color);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.experience-item .experience-details {
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.experience-item .experience-details h5 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-item .experience-details ul {
+    padding-left: 1.5rem;
+}
+
+.dark-mode .experience-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: var(--dark-secondary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .experience-item h3 {
+    color: var(--dark-primary-color);
+}
+
+.dark-mode .experience-item h4 {
+    color: var(--dark-text-color);
+}
+
+.dark-mode .experience-item .experience-date {
+    color: var(--dark-primary-color);
+}
+
+.dark-mode .experience-item .experience-details {
+    color: var(--dark-text-color);
+}
+
+.dark-mode .experience-item .experience-details h5 {
+    color: var(--dark-primary-color);
+}

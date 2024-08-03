@@ -1,10 +1,9 @@
 :root {
-    /* Light mode (Peter Parker's suit) */
-    --primary-color: #C8102E; /* Spider-Man Red */
-    --secondary-color: #0033A0; /* Spider-Man Blue */
-    --background-color: #F0F0F0; /* Light Grey */
-    --text-color: #333333; /* Dark Grey */
-    --highlight-color: #F1C40F; /* Spider-Man Yellow */
+    --primary-color: #6F4F28; /* Coffee Bean Brown */
+    --secondary-color: #D1B29A; /* Creamy Latte */
+    --background-color: #F5F5F5; /* Light Beige */
+    --text-color: #3E2723; /* Espresso Dark Brown */
+    --highlight-color: #A0522D; /* Coffee Mug Orange (Coffee Pot) */
 
     /* Dark mode (Miles Morales' suit) */
     --dark-background-color: #1C1C1C; /* Very Dark Grey */
@@ -26,8 +25,8 @@ body {
 }
 
 header {
-    background-color: var(--secondary-color);
-    color: var(--background-color);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     padding: 2rem;
     text-align: center;
 }
@@ -35,46 +34,6 @@ header {
 header h1 {
     font-size: 3.5rem;
     margin: 0 0 1rem 0;
-}
-
-.title-text {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    transition: color 0.5s ease;
-}
-
-.title-text::before,
-.title-text::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    transform: translateY(10px);
-}
-
-.title-text::before {
-    content: attr(data-hover);
-    color: var(--highlight-color);
-}
-
-.title-text::after {
-    content: '';
-    background-color: var(--primary-color);
-    z-index: -1;
-}
-
-.title-text:hover {
-    color: transparent;
-}
-
-.title-text:hover::before,
-.title-text:hover::after {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .profile-image {
@@ -87,7 +46,10 @@ header h1 {
 
 nav {
     background-color: var(--secondary-color);
-    color: var(--primary-color);
+    color: var(--text-color);
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin: 1rem 2rem;
 }
 
 nav ul {
@@ -95,7 +57,7 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: stretch;
+    justify-content: space-around;
 }
 
 nav ul li {
@@ -103,21 +65,23 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--background-color);
+    color: var(--text-color);
     text-decoration: none;
     cursor: pointer;
     display: block;
-    padding: 1rem;
+    padding: 0.75rem 1rem;
     text-align: center;
     transition: background-color 0.3s, color 0.3s;
+    border-radius: 6px;
 }
 
 nav ul li a:hover {
-    background-color: var(--primary-color);
+    background-color: var(--highlight-color);
+    color: var(--background-color);
 }
 
 nav ul li a.active {
-    background-color: var(--highlight-color);
+    background-color: var(--primary-color);
     color: var(--secondary-color);
 }
 
@@ -137,15 +101,46 @@ section.active {
 #personal-info {
     display: flex;
     align-items: flex-start;
+    gap: 2rem;
+}
+
+.profile-image-container {
+    flex-shrink: 0;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
 }
 
 .about-me-content {
     flex-grow: 1;
-    padding-left: 2rem;
 }
 
-h2 {
-    color: var(--text-color);
+ h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-me-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.contact {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--secondary-color);
+}
+
+.contact h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .dark-mode {
@@ -153,17 +148,78 @@ h2 {
     color: var(--dark-text-color);
 }
 
-.dark-mode header {
+/* .dark-mode header {
     background-color: var(--dark-primary-color);
     color: var(--dark-secondary-color);
+} */
+
+Ah, I see you're aiming for a Miles Morales Spider-Man theme. To align the dot pattern with this theme, we can adjust the colors and pattern to resemble the iconic Spider-Verse style associated with Miles Morales. Here's how we can modify the CSS to achieve this:
+cssCopy@keyframes moveDots1 {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
 }
 
-.dark-mode .title-text::before {
-    color: var(--dark-background-color);
+@keyframes moveDots2 {
+    0% { background-position: 50px 50px; }
+    100% { background-position: 0 0; }
 }
 
-.dark-mode .title-text::after {
-    background-color: var(--dark-primary-color);
+.dark-mode header {
+    position: relative;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    overflow: hidden;
+    background-color: var(--dark-secondary-color); /* Dark background, almost black */
+}
+
+.dark-mode .header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.dark-mode .header-background::before,
+.dark-mode .header-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.6;
+}
+
+.dark-mode .header-background::before {
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 0, 128, 0.8) 10%, transparent 10.5%),
+        radial-gradient(circle at 75% 75%, rgba(0, 255, 255, 0.8) 10%, transparent 10.5%);
+    background-size: 40px 40px;
+    animation: moveDots1 12s linear infinite;
+}
+
+.dark-mode .header-background::after {
+    background-image: 
+        radial-gradient(circle at 75% 25%, rgba(255, 255, 0, 0.8) 8%, transparent 8.5%),
+        radial-gradient(circle at 25% 75%, rgba(0, 255, 0, 0.8) 8%, transparent 8.5%);
+    background-size: 40px 40px;
+    animation: moveDots2 15s linear infinite;
+}
+
+.dark-mode h1 {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.dark-mode .title-text {
+    font-weight: bold;
+    color: white;
 }
 
 .dark-mode nav {
@@ -171,27 +227,34 @@ h2 {
     color: var(--dark-text-color);
 }
 
-.dark-mode h2 {
-    color: var(--dark-text-color);
-}
-
 .dark-mode nav ul li a {
     color: var(--dark-text-color);
-    text-decoration: none;
-    cursor: pointer;
-    display: block;
-    padding: 1rem;
-    text-align: center;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 .dark-mode nav ul li a:hover {
     background-color: var(--dark-highlight-color);
+    color: var(--dark-background-color);
 }
 
 .dark-mode nav ul li a.active {
     background-color: var(--dark-primary-color);
     color: var(--dark-secondary-color);
+}
+
+.dark-mode .profile-image {
+    border: 4px solid var(--dark-primary-color);
+}
+
+.dark-mode h2 {
+    color: var(--dark-primary-color);
+}
+
+.dark-mode .contact {
+    border-top: 1px solid var(--dark-secondary-color);
+}
+
+.dark-mode .contact h3 {
+    color: var(--dark-primary-color);
 }
 
 #darkModeToggle {
@@ -241,24 +304,24 @@ h2 {
 .timeline-button {
     padding: 12px 15px;
     margin-bottom: 10px;
-    background-color: var(--background-color);
+    background-color: var(--secondary-color);
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: left;
     font-size: 1rem;
-    color: var(--secondary-color);
+    color: var(--text-color);
 }
 
 .timeline-button:hover {
-    background-color: var(--secondary-color);
-    color: var(--dark-text-color);
+    background-color: var(--highlight-color);
+    color: var(--text-color);
 }
 
 .timeline-button.active {
     background-color: var(--primary-color);
-    color: var(--dark-text-color);
+    color: var(--background-color);
     font-weight: bold;
 }
 
@@ -266,32 +329,7 @@ h2 {
     flex-grow: 1;
     overflow-y: auto;
     padding: 30px;
-    background-color: var(--dark-background-color);
-}
-
-.experience-item {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    border-radius: 8px;
     background-color: var(--background-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.experience-item h3 {
-    color: var(--primary-color);
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-}
-
-.experience-item h4 {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.experience-item p {
-    color: var(--text-color);
-    line-height: 1.5;
 }
 
 /* Dark mode styles */
@@ -315,6 +353,7 @@ h2 {
 
 .dark-mode .timeline-button:hover {
     background-color: var(--dark-highlight-color);
+    color: var(--dark-text-color);
 }
 
 .dark-mode .timeline-button.active {
@@ -324,21 +363,4 @@ h2 {
 
 .dark-mode .timeline-content {
     background-color: var(--dark-background-color);
-}
-
-.dark-mode .experience-item {
-    background-color: var(--dark-background-color);
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-}
-
-.dark-mode .experience-item h3 {
-    color: var(--dark-primary-color);
-}
-
-.dark-mode .experience-item h4 {
-    color: var(--dark-primary-color);
-}
-
-.dark-mode .experience-item p {
-    color: var(--dark-text-color);
 }

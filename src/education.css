@@ -1,0 +1,93 @@
+#education .timeline-container {
+    display: flex;
+    height: 600px;
+    margin-top: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#education .timeline {
+    width: 250px;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-right: 1px solid var(--secondary-color);
+}
+
+#education .timeline-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 30px;
+    background-color: var(--background-color);
+}
+
+.education-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.education-item h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.education-item h4 {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.education-item .education-date {
+    color: var(--primary-color);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.education-item .education-details {
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.education-item .education-details h5 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.education-item .education-details ul {
+    padding-left: 1.5rem;
+}
+
+/* Dark mode styles */
+.dark-mode #education .timeline-container {
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode #education .timeline,
+.dark-mode #education .timeline-content {
+    background-color: var(--dark-background-color);
+}
+
+.dark-mode .education-item {
+    background-color: var(--dark-secondary-color);
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .education-item h3,
+.dark-mode .education-item .education-details h5 {
+    color: var(--dark-primary-color);
+}
+
+.dark-mode .education-item h4,
+.dark-mode .education-item .education-details {
+    color: var(--dark-text-color);
+}
+
+.dark-mode .education-item .education-date {
+    color: var(--dark-primary-color);
+}
