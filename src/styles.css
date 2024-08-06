@@ -28,12 +28,34 @@ header {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     padding: 2rem;
-    text-align: center;
 }
 
 header h1 {
     font-size: 3.5rem;
     margin: 0 0 1rem 0;
+}
+
+header {
+    position: relative;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    overflow: hidden;
+    background-color: var(--secondary-color); /* Dark background, almost black */
+}
+
+h1 {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.title-text {
+    font-weight: bold;
+    color: var(--primary-color);
 }
 
 .profile-image {
@@ -148,22 +170,6 @@ section.active {
     color: var(--dark-text-color);
 }
 
-/* .dark-mode header {
-    background-color: var(--dark-primary-color);
-    color: var(--dark-secondary-color);
-} */
-
-Ah, I see you're aiming for a Miles Morales Spider-Man theme. To align the dot pattern with this theme, we can adjust the colors and pattern to resemble the iconic Spider-Verse style associated with Miles Morales. Here's how we can modify the CSS to achieve this:
-cssCopy@keyframes moveDots1 {
-    0% { background-position: 0 0; }
-    100% { background-position: 50px 50px; }
-}
-
-@keyframes moveDots2 {
-    0% { background-position: 50px 50px; }
-    100% { background-position: 0 0; }
-}
-
 .dark-mode header {
     position: relative;
     color: white;
@@ -173,53 +179,18 @@ cssCopy@keyframes moveDots1 {
     background-color: var(--dark-secondary-color); /* Dark background, almost black */
 }
 
-.dark-mode .header-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.dark-mode .header-background::before,
-.dark-mode .header-background::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0.6;
-}
-
-.dark-mode .header-background::before {
-    background-image: 
-        radial-gradient(circle at 25% 25%, rgba(255, 0, 128, 0.8) 10%, transparent 10.5%),
-        radial-gradient(circle at 75% 75%, rgba(0, 255, 255, 0.8) 10%, transparent 10.5%);
-    background-size: 40px 40px;
-    animation: moveDots1 12s linear infinite;
-}
-
-.dark-mode .header-background::after {
-    background-image: 
-        radial-gradient(circle at 75% 25%, rgba(255, 255, 0, 0.8) 8%, transparent 8.5%),
-        radial-gradient(circle at 25% 75%, rgba(0, 255, 0, 0.8) 8%, transparent 8.5%);
-    background-size: 40px 40px;
-    animation: moveDots2 15s linear infinite;
-}
-
 .dark-mode h1 {
     position: relative;
     z-index: 2;
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
 
 .dark-mode .title-text {
     font-weight: bold;
-    color: white;
+    color: var(--dark-primary-color);
 }
 
 .dark-mode nav {
